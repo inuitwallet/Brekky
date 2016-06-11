@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'butter.apps.ButterConfig',
+    'toast.apps.ToastConfig'
 ]
 
 MIDDLEWARE_CLASSES = [

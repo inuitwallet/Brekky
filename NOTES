@@ -5,7 +5,7 @@ Profile -
 
 Transactions
 
-id | amount | payment method | type | payment_address | complete
+id | amount | payment method | type | address | complete
 
 
 

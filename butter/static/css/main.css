@@ -1,0 +1,10 @@
+
+.tx_type_choice_radio {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.payment_processor_choice_radio {
+    border: 1px solid black;
+    padding: 15px;
+}

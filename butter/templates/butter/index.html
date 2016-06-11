@@ -1,0 +1,52 @@
+{% extends 'butter/base.html' %}
+
+{% block title %}Butter{% endblock %}
+
+{% block content %}
+<div class="content container ">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h1>Welcome to Brekky</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <form action="/" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <p class="always">Would you like to buy or sell {{ currency_plural }}?</p>
+                {{ form.tx_type.errors }}
+                {% for choice in form.tx_type %}
+                    <label for="{{ choice.id_for_label }}" class="tx_type_choice_radio">
+                        {{ choice.choice_label }}<br />
+                        {{ choice.tag }}
+                    </label>
+                {% endfor %}
+
+                <p class="buy">There are currently {{ buy_amount }} {{ currency_plural }} for sale</p>
+                <p class="buy">How many would you like to buy?</p>
+                {{ form.amount.errors }}
+                {{ form.amount.label_tag }}
+                {{ form.amount }}
+
+                <p class="buy">Please enter a valid {{ currency_code }} address for the purchased {{ currency_plural }} to be sent to:</p>
+                {{ form.address.errors }}
+                {{ form.address.label_tag }}
+                {{ form.address }}
+
+                <p class="buy">Please choose the payment processor you would like to handle your purchase:</p>
+                {% for choice in form.payment_processor %}
+                    <label for="{{ choice.id_for_label }}" class="payment_processor_choice_radio">
+                        {{ choice.choice_label }}<br />
+                        {{ choice.tag }}
+                    </label>
+                {% endfor %}
+
+                <br />
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
