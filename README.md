@@ -17,7 +17,7 @@ paywall/gateway for content and/or services
 3) install the requirements  
 `pip install -r requirements.txt`  
 4) run the database migrations  
-`python manage.py migrate`
+`python manage.py migrate`  
 5) run the test server  
 `python manage.py runserver`  
   
