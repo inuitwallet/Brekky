@@ -1,0 +1,53 @@
+
+
+Extend user model with profile
+Profile -
+
+Transactions
+
+id | amount | payment method | type | payment_address | complete
+
+
+
+
+Workflow
+
+Butter -
+1) user decides whether to buy or sell Nubits
+Buy:
+    - brekky shows user how many Nubits are available and the price
+    - user chooses how many to purchase
+    - user enters payment address
+    - user chooses payment method (html form / button method)
+    - brekky saves details of incomplete transaction to database
+    - chosen payment method is contacted
+    Confirmation:
+        - confirmation of funds transfer is received from chosen service
+        - brekky updates completion status of transaction in the database
+        - brekky sends NuBits to user
+    Unconfirmed:
+        - no confirmation or denial received from payment service
+        - brekky informs user of failure
+Sell:
+    - brekky shows user funds available to buy NuBits
+    - user chooses amount
+    - user chooses a payment method (api method)
+    - user enters payment method details (account number/email)
+    - brekky saves incomplete transaction to database
+    - brekky displays NBT address to user and timer?
+    - brekky monitors nbt wallet for transaction for x time
+    Tx Received:
+        - brekky completes transaction with payment provider
+        - brekky displays confirmation to user
+        - brekky saves transaction completion status to database
+    Tx not received
+        - brekky informs user of failure
+
+requirements
+    - nud wrapper
+        - check balance
+        - confirm Tx
+        - send funds to address
+        - cold storage backup?
+
+
