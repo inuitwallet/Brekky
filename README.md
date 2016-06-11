@@ -1,5 +1,7 @@
 #Butter and Toast
 
+[![Join the chat at https://gitter.im/inuitwallet/Brekky](https://badges.gitter.im/inuitwallet/Brekky.svg)](https://gitter.im/inuitwallet/Brekky?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Butter is an eCash to NuBits on/off ramping service that integrates with services such 
 as OKPay and PerfectMoney to provide a way to purchase and sell NuBits away for 
 traditional exchanges.
