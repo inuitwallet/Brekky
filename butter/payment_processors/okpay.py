@@ -4,12 +4,13 @@ class OkPay(object):
         pass
 
     @staticmethod
-    def generate_payment_url(self, tx, post_data, currency):
+    def generate_payment_url(tx, post_data, currency):
         """
         generate a payment url to allow a user to send funds by this processor
         :param tx: a butter Transactions object
         :param post_data: the request POST data dict that created this tx
-        :return:
+        :param currency: currency code to use in item description
+        :return: string containing redirect url
         """
         # TODO - don't hard code OK_Receiver
         # TODO - don't hard code price or currencies

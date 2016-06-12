@@ -8,3 +8,12 @@
     border: 1px solid black;
     padding: 15px;
 }
+
+.errors {
+    color: red;
+    font-weight: bold;
+}
+
+.errors ul {
+    list-style-type: none;
+}

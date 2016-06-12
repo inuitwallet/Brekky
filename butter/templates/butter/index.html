@@ -1,5 +1,5 @@
 {% extends 'butter/base.html' %}
-
+{% load staticfiles %}
 {% block title %}Butter{% endblock %}
 
 {% block content %}
@@ -13,40 +13,97 @@
         <div class="col-md-8 col-md-offset-2 text-center">
             <form action="/" method="post">
                 {% csrf_token %}
-                {{ form.non_field_errors }}
 
-                <p class="always">Would you like to buy or sell {{ currency_plural }}?</p>
-                {{ form.tx_type.errors }}
-                {% for choice in form.tx_type %}
-                    <label for="{{ choice.id_for_label }}" class="tx_type_choice_radio">
-                        {{ choice.choice_label }}<br />
-                        {{ choice.tag }}
+                <!-- Display Form Errors -->
+                <div class="error">
+                    {{ form.non_field_errors }}
+                </div>
+
+                <!-- Ask if the visitor wants to Buy or Sell -->
+                <div class="buy-or-sell">
+                    <div class="question always">
+                        <p>
+                            Would you like to buy or sell {{ currency_plural }}?
+                        </p>
+                    </div>
+                </div>
+                <!-- Show the Buy and Sell radio buttons -->
+                <div class="buy-or-sell-choices">
+                    <label for="tx_type_buy" class="tx_type_choice_radio tx_type_buy">
+                        Buy<br />
+                        <input id="tx_type_buy" name="tx_type" type="radio" value="BUY">
                     </label>
-                {% endfor %}
-
-                <p class="buy">There are currently {{ buy_amount }} {{ currency_plural }} for sale</p>
-                <p class="buy">How many would you like to buy?</p>
-                {{ form.amount.errors }}
-                {{ form.amount.label_tag }}
-                {{ form.amount }}
-
-                <p class="buy">Please enter a valid {{ currency_code }} address for the purchased {{ currency_plural }} to be sent to:</p>
-                {{ form.address.errors }}
-                {{ form.address.label_tag }}
-                {{ form.address }}
-
-                <p class="buy">Please choose the payment processor you would like to handle your purchase:</p>
-                {% for choice in form.payment_processor %}
-                    <label for="{{ choice.id_for_label }}" class="payment_processor_choice_radio">
-                        {{ choice.choice_label }}<br />
-                        {{ choice.tag }}
+                    <label for="tx_type_sell" class="tx_type_choice_radio tx_type_sell">
+                        Sell<br />
+                        <input id="tx_type_sell" name="tx_type" type="radio" value="SELL">
                     </label>
-                {% endfor %}
+                </div>
 
+                <!---->
+                <!-- Below here can change depending on whether Buy or Sell -->
+                <!---->
+
+                <!-- When Buying show this text -->
+                <div class="question buy-element">
+                    <p>How many {{ currency_plural }} would you like to buy?</p>
+                </div>
+                <!-- When Selling show this text -->
+                <div class="question sell-element">
+                    <p>How many {{ currency_plural }} would you like to sell?</p>
+                </div>
+                <!-- show the Amount field which ever is chosen -->
+                <div class="always">
+                    <div class="errors">
+                        {{ form.amount.errors }}
+                    </div>
+                    {{ form.amount.label_tag }}
+                    {{ form.amount }}
+                </div>
+
+                <!-- If buying, we need an address to send the coin to -->
+                <div class="question buy-element">
+                    Please enter a valid {{ currency_code }} address, that you control, for the purchased {{ currency_plural }} to be sent to:
+                </div>
+                <div class="buy-element">
+                    <div class="errors">
+                        <!-- We use messages for Address validation -->
+                        {% if messages %}
+                            <ul class="messages">
+                            {% for message in messages %}
+                                <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                        {{ form.address.errors }}
+                    </div>
+                    {{ form.address.label_tag }}
+                    {{ form.address }}
+                </div>
+
+                <!-- We show the buy payment processor option -->
+                <div class="question buy-element">
+                    Please choose the payment processor you wish to use to send money to Brekky:
+                </div>
+                <!-- We show the sell payment processor option -->
+                <div class="question sell-element">
+                    Please choose the payment processor you wish Brekky to use to send you your sale proceeds:
+                </div>
+                <div class="always">
+                    <div class="errors">
+                        {{ form.payment_processor.errors }}
+                    </div>
+                    {% for choice in form.payment_processor %}
+                        <label for="{{ choice.id_for_label }}" class="payment_processor_choice_radio">
+                            {{ choice.choice_label }}<br />
+                            {{ choice.tag }}
+                        </label>
+                    {% endfor %}
+                </div>
                 <br />
                 <input type="submit" value="Submit" />
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 {% endblock %}

@@ -52,7 +52,8 @@ class Transactions(models.Model):
         max_length=255,
         help_text='The Nu address associated with this transaction. '
                   'This will either be used to receive funds from a customer '
-                  'or be provided by a customer to receive their Nu tokens. '
+                  'or be provided by a customer to receive their Nu tokens. ',
+        blank=True
     )
 
     complete = models.BooleanField(
