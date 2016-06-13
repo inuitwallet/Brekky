@@ -51,3 +51,12 @@ requirements
         - cold storage backup?
 
 
+Toast:
+
+2 types of user. Content providers (bakers) and content consumers (toasters) 
+
+Bakers: 
+Plugin to api. 
+API provides an address tied to their brekky account
+They display that to their consumer who pays the amount requested (either directly or with eggs? (brekky tokens) 
+Once the payment is confirmed the brekky api informs the bakers system that the payment is complete and they allow access to their content 
