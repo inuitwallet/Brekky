@@ -1,10 +1,11 @@
 
 class OkPay(object):
+
     def __init__(self):
         pass
 
     @staticmethod
-    def generate_payment_url(tx, post_data, currency):
+    def generate_payment_url(tx, amount, currency):
         """
         generate a payment url to allow a user to send funds by this processor
         :param tx: a butter Transactions object
@@ -23,7 +24,7 @@ class OkPay(object):
                'ok_item_1_quantity={}&' \
                'ok_fees=1&' \
                'ok_invoice={}'.format(
-                    '{}%20{}'.format(post_data['amount'], currency),
-                    post_data['amount'],
+                    '{}%20{}'.format(amount, currency),
+                    amount,
                     tx.id
                )
