@@ -121,3 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Connection to Daio service for blockchain and transactions
+DAIO_URL = ''
+DAIO_TOKEN = ''
+
+# The pk of the toast user used by butter
+BUTTER_USER_ID = 0
