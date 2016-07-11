@@ -1,7 +1,11 @@
+#PAYMENT_PROCESSORS = (
+#    ('OK', 'OKPay'),
+#    ('PM', 'Perfect Money'),
+#    ('PZ', 'Payza'),
+#)
+
 PAYMENT_PROCESSORS = (
     ('OK', 'OKPay'),
-    ('PM', 'Perfect Money'),
-    ('PZ', 'Payza'),
 )
 
 TX_TYPES = (
