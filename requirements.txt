@@ -1,5 +1,6 @@
 bpython
 django
+dj-database-url
 ecdsa
 gunicorn
 requests[security]
