@@ -1,3 +1,6 @@
+bpython
 django
+ecdsa
 requests[security]
+pbkdf2
 psycopg2
