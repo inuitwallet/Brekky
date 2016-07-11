@@ -6,3 +6,4 @@ gunicorn
 requests[security]
 pbkdf2
 psycopg2
+whitenoise
