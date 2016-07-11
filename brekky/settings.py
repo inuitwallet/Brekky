@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join('butter', 'static'),
 )
 
 # Simplified static file serving.
