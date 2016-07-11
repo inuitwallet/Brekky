@@ -59,4 +59,17 @@ Bakers:
 Plugin to api. 
 API provides an address tied to their brekky account
 They display that to their consumer who pays the amount requested (either directly or with eggs? (brekky tokens) 
-Once the payment is confirmed the brekky api informs the bakers system that the payment is complete and they allow access to their content 
+Once the payment is confirmed the brekky api informs the bakers system that the payment is complete and they allow access to their content
+-----------
+Daemon service:
+-----------
+
+Endpoints:
+    /new =  daemon service generates two 128 bit mnemonics.
+            it uses both to generate a bip32 extended public key
+            it saves one mnemonic
+            it outputs json containing the second mnemonic, a unique id and the extpub
+            calling service saves the displayed mnemonic and the extpub
+            extpub can be used to generate new addresses
+            when new address is generated, calling service sends request to daemon
+            service
